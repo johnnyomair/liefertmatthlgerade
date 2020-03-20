@@ -38,7 +38,7 @@ export const Admin: FunctionComponent = () => {
                 </div>
               </ListItem>
             ))}
-            {rides.length === 0 && <ListItem>Keine Fahrten</ListItem>}
+            {rides.length === 0 && <div>Keine geplanten Fahrten</div>}
           </List>
         </>
       )}

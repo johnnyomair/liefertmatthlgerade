@@ -1,0 +1,18 @@
+.inputContainer {
+  display: flex;
+  padding: 8px 16px;
+}
+
+.label {
+  width: 100px;
+}
+
+.input {
+  flex: 1;
+}
+
+.error {
+  padding: 0 16px;
+  font-size: 0.8rem;
+  color: darkred;
+}

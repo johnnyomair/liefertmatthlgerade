@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { firestore } from "firebase";
+import { firestore } from "firebase/app";
 import React, { FunctionComponent } from "react";
 import { Form } from "../components/Form";
 import { List } from "../components/List";

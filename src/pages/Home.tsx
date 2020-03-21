@@ -7,7 +7,7 @@ import { Title } from "../components/Title";
 import { useRides } from "../hooks/useRides";
 import Styles from "./Home.module.css";
 
-export const Home: FunctionComponent = () => {
+const Home: FunctionComponent = () => {
   const rides = useRides();
 
   if (!rides) {
@@ -55,3 +55,5 @@ export const Home: FunctionComponent = () => {
     </>
   );
 };
+
+export default Home;

@@ -9,7 +9,7 @@ import { Title } from "../components/Title";
 import { Ride, useRides } from "../hooks/useRides";
 import Styles from "./Admin.module.css";
 
-export const Admin: FunctionComponent = () => {
+const Admin: FunctionComponent = () => {
   const rides = useRides();
 
   const handleDeleteClick = (ride: Ride) => {
@@ -47,3 +47,5 @@ export const Admin: FunctionComponent = () => {
     </div>
   );
 };
+
+export default Admin;

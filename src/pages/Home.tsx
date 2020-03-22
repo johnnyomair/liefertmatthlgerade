@@ -14,7 +14,7 @@ const Home: FunctionComponent = () => {
     return <Text>Ermittle...</Text>;
   }
 
-  const currentRide = rides.find(ride => isWithinInterval(new Date(), ride));
+  const currentRide = rides.find((ride) => isWithinInterval(new Date(), ride));
 
   if (currentRide) {
     return (
@@ -42,7 +42,7 @@ const Home: FunctionComponent = () => {
       <Title>Leider nein!</Title>
       <Title as="h2">Matthls nächste Fahrten</Title>
       <List>
-        {rides.map(ride => (
+        {rides.map((ride) => (
           <ListItem key={ride.id}>
             <div className={Styles.listItem}>
               {format(ride.start, "dd.MM.yyyy, HH:mm")}-

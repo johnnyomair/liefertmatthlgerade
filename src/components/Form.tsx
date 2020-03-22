@@ -62,12 +62,10 @@ export const Form: FunctionComponent = () => {
 
     const newRide: Interval = {
       start: parse(`${date} ${start}`, "yyyy-MM-dd HH:mm", new Date()),
-      end: parse(`${date} ${end}`, "yyyy-MM-dd HH:mm", new Date())
+      end: parse(`${date} ${end}`, "yyyy-MM-dd HH:mm", new Date()),
     };
 
-    return firestore()
-      .collection("rides")
-      .add(newRide);
+    return firestore().collection("rides").add(newRide);
   };
 
   return (
@@ -76,7 +74,7 @@ export const Form: FunctionComponent = () => {
       validate={validate}
       render={({ handleSubmit, invalid, pristine, form }) => (
         <form
-          onSubmit={async event => {
+          onSubmit={async (event) => {
             await handleSubmit(event);
             form.reset();
           }}

@@ -3,7 +3,7 @@ import Styles from "./Title.module.css";
 
 export const Title: FunctionComponent<{ as?: "h1" | "h2" }> = ({
   children,
-  as
+  as,
 }) => {
   const Component = as || "h1";
 

@@ -13,9 +13,7 @@ const Admin: FunctionComponent = () => {
   const rides = useRides();
 
   const handleDeleteClick = (ride: Ride) => {
-    firestore()
-      .doc(`rides/${ride.id}`)
-      .delete();
+    firestore().doc(`rides/${ride.id}`).delete();
   };
 
   return (
@@ -27,7 +25,7 @@ const Admin: FunctionComponent = () => {
         <>
           <Title as="h2">Fahrten</Title>
           <List>
-            {rides.map(ride => (
+            {rides.map((ride) => (
               <ListItem key={ride.id}>
                 <div className={Styles.listItem}>
                   <span>

@@ -16,11 +16,11 @@ export const useRides = (): Ride[] | undefined => {
   }>(firestore().collection("rides"), { idField: "id" });
 
   return rides
-    ?.map(ride => ({
+    ?.map((ride) => ({
       ...ride,
       start: ride.start.toDate(),
-      end: ride.end.toDate()
+      end: ride.end.toDate(),
     }))
-    .filter(ride => isFuture(ride.end))
+    .filter((ride) => isFuture(ride.end))
     .sort((rideA, rideB) => rideA.start.getTime() - rideB.start.getTime());
 };

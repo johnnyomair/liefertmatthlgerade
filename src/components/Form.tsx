@@ -1,10 +1,10 @@
-import { Interval, parse, isPast, endOfDay } from "date-fns";
-import { FormApi, ValidationErrors } from "final-form";
+import { endOfDay, Interval, isPast, parse } from "date-fns";
+import { ValidationErrors } from "final-form";
 import { firestore } from "firebase/app";
 import React, { FunctionComponent } from "react";
 import { Field, Form as FinalForm } from "react-final-form";
-import { Input } from "./Input";
 import Styles from "./Form.module.css";
+import { Input } from "./Input";
 
 interface FormValues {
   date?: string;
@@ -57,7 +57,7 @@ const validate = (values: FormValues): ValidationErrors => {
 };
 
 export const Form: FunctionComponent = () => {
-  const handleSubmit = (values: FormValues, form: FormApi<FormValues>) => {
+  const handleSubmit = (values: FormValues) => {
     const { date, start, end } = values;
 
     const newRide: Interval = {

@@ -1,6 +1,8 @@
 import { format } from "date-fns";
-import { firestore } from "firebase/app";
+import { auth, firestore } from "firebase/app";
+import "firebase/auth";
 import React, { FunctionComponent } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Form } from "../components/Form";
 import { List } from "../components/List";
 import { ListItem } from "../components/ListItem";
@@ -8,16 +10,31 @@ import { Text } from "../components/Text";
 import { Title } from "../components/Title";
 import { Ride, useRides } from "../hooks/useRides";
 import Styles from "./Admin.module.css";
+import { LoginForm } from "../components/LoginForm";
 
 const Admin: FunctionComponent = () => {
+  const [user, initialising] = useAuthState(auth());
   const rides = useRides();
 
   const handleDeleteClick = (ride: Ride) => {
     firestore().doc(`rides/${ride.id}`).delete();
   };
 
+  if (initialising) {
+    return <Text>Ermittle...</Text>;
+  }
+
+  if (!user) {
+    return (
+      <>
+        <Title>Admin</Title>
+        <LoginForm />
+      </>
+    );
+  }
+
   return (
-    <div>
+    <>
       <Title>Admin</Title>
       <Title as="h2">Neue Fahrt</Title>
       <Form />
@@ -42,7 +59,7 @@ const Admin: FunctionComponent = () => {
           </List>
         </>
       )}
-    </div>
+    </>
   );
 };
 

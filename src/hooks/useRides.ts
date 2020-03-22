@@ -1,5 +1,6 @@
 import { isFuture } from "date-fns";
 import { firestore } from "firebase/app";
+import "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
 export interface Ride {

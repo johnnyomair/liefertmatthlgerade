@@ -1,6 +1,7 @@
 import { endOfDay, Interval, isPast, parse } from "date-fns";
 import { ValidationErrors } from "final-form";
 import { firestore } from "firebase/app";
+import "firebase/firestore";
 import React, { FunctionComponent } from "react";
 import { Field, Form as FinalForm } from "react-final-form";
 import Styles from "./Form.module.css";
